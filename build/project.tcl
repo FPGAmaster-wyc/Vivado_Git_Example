@@ -29,7 +29,7 @@ proc run_create {} {
         ../src/top.v
         ../src/wr_rd_ddr.v
     }
-）
+    
     add_files -fileset [current_fileset] -force -norecurse {
         ../ip/vio_7series/vio_7series.xci
         ../ip/aurora_64b66b_0.xcix
