@@ -89,7 +89,7 @@ proc run_build {} {
     wait_on_run [current_run -implementation]
 }
 
-# 导出 xsa 文件  
+# 导出 xsa 文件   （需要再build.tcl 添加一行 run_dist ）
 proc run_dist {} {
     global projName
     global top

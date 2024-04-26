@@ -73,34 +73,3 @@ proc run_build {} {
     launch_runs -jobs 12 [current_run -implementation] -to_step write_bitstream
     wait_on_run [current_run -implementation]
 }
-
-proc run_dist {} {
-    global projName
-    global top
-
-    # Copy binary files
-    set prefix [get_property DIRECTORY [current_run -implementation]]
-    #set bit_fn [format "%s/%s.bit" $prefix $top]
-    #set dbg_fn [format "%s/debug_nets.ltx" $prefix]
-    #file copy -force $bit_fn {./}
-    #file copy -force $dbg_fn {./}
-
-    # Export hardware
-    # Before 2019.2
-    #set sdk_path [format "%s/%s.sdk" $projName $projName]
-    #set hdf_fn [format "%s/%s.hdf" $sdk_path $top]
-    # Export with bitstream
-    #set sysdef_fn [format "%s/%s.sysdef" $prefix $top]
-    #file copy -force $sysdef_fn $hdf_fn
-    # Export without bitstream
-    #file mkdir $sdk_path
-    #write_hwdef -force -file $hdf_fn
-    # Post 2019.2
-    set xsa_fn [format "%s.xsa" $projName]
-    write_hw_platform -fixed -force -file $xsa_fn
-
-    # Archieve project
-    set timestamp [clock format [clock seconds] -format "%Y%m%d_%H%M%S"]
-    archive_project -force [format "%s_%s.xpr" [current_project] $timestamp]
-}
-
