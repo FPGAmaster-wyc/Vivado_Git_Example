@@ -1,3 +1,5 @@
+# Product Version: Vivado v2019.2 (64-bit)
+
 set projName Aurora_xdma_ddr	
 set part xc7z100ffg900-2	
 set top top	
@@ -29,7 +31,7 @@ proc run_create {} {
         ../src/top.v
         ../src/wr_rd_ddr.v
     }
-    
+	
     add_files -fileset [current_fileset] -force -norecurse {
         ../ip/vio_7series/vio_7series.xci
         ../ip/aurora_64b66b_0.xcix
@@ -73,3 +75,5 @@ proc run_build {} {
     launch_runs -jobs 12 [current_run -implementation] -to_step write_bitstream
     wait_on_run [current_run -implementation]
 }
+
+
