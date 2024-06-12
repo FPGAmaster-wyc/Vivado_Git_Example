@@ -49,6 +49,9 @@ proc run_create {} {
     add_files -fileset [current_fileset -constrset] -force -norecurse {
         ../src/top.xdc
     }
+	
+	set_property ip_repo_paths "../ip/axi_lite_4reg_1.0" [current_project]
+	update_ip_catalog
 
     source {../bd/bd.tcl}
 

@@ -41,12 +41,12 @@ proc run_create {} {
     # 添加 ip （xci和xcix文件都可以）
     add_files -fileset [current_fileset] -force -norecurse {
         ../ip/vio_7series/vio_7series.xci
-        ../ip/aurora_64b66b_0.xcix
-        ../ip/aurora_64b66b_0_reg_slice_0.xcix
-		../ip/aurora_64b66b_0_reg_slice_2.xcix
-		../ip/clk_wiz_0.xcix
-		../ip/ila_0.xcix
-		../ip/ila_7series.xcix
+        ../ip/aurora_64b66b_0.xci
+        ../ip/aurora_64b66b_0_reg_slice_0.xci
+		../ip/aurora_64b66b_0_reg_slice_2.xci
+		../ip/clk_wiz_0.xci
+		../ip/ila_0.xci
+		../ip/ila_7series.xci
     }
 
     # 添加 仿真文件
@@ -58,6 +58,10 @@ proc run_create {} {
     add_files -fileset [current_fileset -constrset] -force -norecurse {
         ../src/top.xdc
     }
+	
+	#添加自定义ip库 
+	set_property ip_repo_paths "../ip/axi_lite_4reg_1.0" [current_project]
+	update_ip_catalog
 
     # 加载 block design 设计
     source {../bd/bd.tcl}
