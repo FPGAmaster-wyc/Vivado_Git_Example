@@ -1,5 +1,5 @@
 # Product Version: Vivado v2019.2 (64-bit)
-
+# 使用教程：在对应的vivado下面，Tcl console界面，cd进入build.Tcl目录，然后table，然后source ./build.tcl即可
 set projName Aurora_xdma_ddr	
 set part xc7z100ffg900-2	
 set top top	
